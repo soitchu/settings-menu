@@ -1,0 +1,20 @@
+{
+  "name": "settings-menu",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm run clean && tsc -p tsconfig.json && rimraf dist/models && rimraf demo/index.js && cp dist/index.js demo",
+    "clean": "rimraf dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/soitchu/settings-menu.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/soitchu/settings-menu/issues"
+  },
+  "homepage": "https://github.com/soitchu/settings-menu#readme"
+}

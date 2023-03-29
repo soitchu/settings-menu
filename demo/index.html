@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo</title>
+    <link href="index.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="menuCon" class="menuCon"></div>
+    <script src="index.js"></script>
+    <script>
+        let DMenu = new dropDownMenu(
+            [
+                {
+                    "id": "initial",
+                    "heading": {
+                        "text": "Settings",
+                        "hideArrow": true,
+                    },
+                    "items": [
+                        {
+                            "text": "Quality",
+                            "iconID": "qualIcon",
+                            "open": "quality",
+                            "subMenu": true,
+                        },
+
+                        {
+                            "text": "Sources",
+                            "iconID": "sourceIcon",
+                            "open": "source"
+                        },
+                        {
+                            "text": "Fill Mode",
+                            "iconID": "fillIcon",
+                            "open": "fillmode"
+                        },
+                        {
+                            "text": "Config",
+                            "iconID": "configIcon",
+                            "open": "config"
+                        }
+                    ]
+                },
+                {
+                    "id": "quality",
+                    "selectableScene": true,
+                    "heading": {
+                        "text": "Quality",
+                    },
+                    "items": [
+                        {
+                            "text": "1080p",
+                            "callback": () => console.log("1080p!"),
+                            "highlightable": true,
+                            "selected": true,
+                        },
+                        {
+                            "text": "720p",
+                            "callback": () => console.log("720p!"),
+                            "highlightable": true,
+                            "id": "720"
+                        },
+                        {
+                            "text": "480p",
+                            "callback": () => console.log("480p!"),
+                            "highlightable": true,
+                        },
+                        {
+                            "text": "Auto",
+                            "toggle": true,
+                            "id": "auto",
+                            "on": false,
+                            "toggleOn": () => console.log("Toggle on"),
+                            "toggleOff": () => console.log("Toggle off"),
+                        }
+                    ]
+                },
+
+                {
+                    "id": "source",
+                    "selectableScene": true,
+                    "heading": {
+                        "text": "Sources",
+                    },
+                    "items": [
+                        {
+                            "text": "HLS#sub",
+                            "highlightable": true,
+                            "selected": true,
+                        },
+                        {
+                            "text": "HLS#dub",
+                            "highlightable": true
+                        }
+                    ]
+                },
+
+                {
+                    "id": "fillmode",
+                    "selectableScene": true,
+                    "heading": {
+                        "text": "Fill Mode",
+                    },
+                    "items": [
+                        {
+                            "text": "Normal",
+                            "highlightable": true,
+                            "selected": true,
+                        },
+                        {
+                            "text": "Stretch",
+                            "highlightable": true
+                        },
+                        {
+                            "text": "Subtitles",
+                            "highlightable": true
+                        },
+                        {
+                            "text": "Quality",
+                            "open": "quality"
+                        }
+                    ]
+                },
+
+                {
+                    "id": "config",
+                    "heading": {
+                        "text": "Configuration",
+                        "back": true
+                    },
+                    "items": [
+                        {
+                            "text": "Autoplay",
+                            "toggle": true,
+                            "toggleOn": () => console.log("Toggle on"),
+                            "toggleOff": () => console.log("Toggle off"),
+                        },
+                        {
+                            "text": "Rewatch Mode",
+                            "toggle": true,
+                            "toggleOn": () => console.log("Toggle on"),
+                            "toggleOff": () => console.log("Toggle off"),
+                        },
+                        {
+                            "text": "Hide Skip Intro",
+                            "toggle": true,
+                            "toggleOn": () => console.log("Toggle on"),
+                            "toggleOff": () => console.log("Toggle off"),
+                        },
+                        {
+                            "text": "Automatically Skip Intro",
+                            "toggle": true,
+                            "toggleOn": () => console.log("Toggle on"),
+                            "toggleOff": () => console.log("Toggle off"),
+                        },
+                        {
+                            "text": "Double Tap Time",
+                            "textBox": true,
+                            "onInput": function (value) {
+                                console.log(value.target.value);
+                            }
+                        },
+                        {
+                            "text": "Skip Tutton Time",
+                            "textBox": true,
+                            "value": "hi",
+                            "onInput": function (value) {
+                                console.log(value.target.value);
+                            }
+                        }
+                    ]
+                }
+            ], menuCon);
+
+        DMenu.open("initial");
+    </script>
+</body>
+
+</html>
